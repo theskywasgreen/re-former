@@ -1,4 +1,4 @@
-<h1> New User </h1>
+<h1> Edit User </h1>
 <!--
 <form accept-charset="UTF-8" action="/users" method="post">
   Username: <input type="text" name="user[username]"><br>
@@ -19,6 +19,12 @@
 <%= submit_tag("Submit") %>
 <% end %>
 -->
+
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |error| %>
+    <h3 style='color: red'><%= error %></h3>
+  <% end %>
+<% end %>
 
 <%= form_for @user do |f| %>
 <%= label(:username, "Username") %>
